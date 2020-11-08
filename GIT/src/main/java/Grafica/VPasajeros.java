@@ -5,45 +5,29 @@
  */
 package Grafica;
 
-import Logica.Fachada;
-import Logica.Pasajeros;
-import javax.swing.table.DefaultTableModel;
+import Logica.Pasajeros.Pasajero;
+import Logica.Pasajeros.Pasajeros;
+import ModelosDeTabla.TablaPasajeros;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Usuario
  */
 public class VPasajeros extends javax.swing.JFrame {
- Fachada F = Fachada.getInstancia();
- 
-        String col[] = {"Nombre", "Pasaporte","Sexo","Edad"};
-	    DefaultTableModel modelo = new DefaultTableModel(col,0);
-  
-            /**
+
+    Pasajeros F = Pasajeros.getInstancia();
+    TablaPasajeros modelo = new TablaPasajeros();
+
+    /**
      * Creates new form VPasajeros
      */
     public VPasajeros() {
         initComponents();
-    
 
-    
-   
-        
-        
-       for (int i=0;i<F.Pasajeros().size();i++){
-                String Nombre = F.Pasajeros().get(i).getNombre();
-                String Pasaporte = F.Pasajeros().get(i).getPasaporte();
-                String Sexo = F.Pasajeros().get(i).getSexo();
-                String Edad = F.Pasajeros().get(i).getEdad();
-               
-			
-		String carga [] = {Nombre,Pasaporte,Sexo,Edad};
-                
-      	   
-		modelo.addRow(carga);
-            }
-       hojaDatosPasajeros.setModel(modelo);
+        hojaDatosPasajeros.setModel(modelo);
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -52,15 +36,22 @@ public class VPasajeros extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jScrollPane1 = new javax.swing.JScrollPane();
         hojaDatosPasajeros = new javax.swing.JTable();
-        txtNombre = new javax.swing.JTextField();
-        txtSexo = new javax.swing.JTextField();
-        txtPasaporte = new javax.swing.JTextField();
-        btnModificar = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        TxtPasaporte = new javax.swing.JTextField();
+        TxtNombre = new javax.swing.JTextField();
+        TxtSexo = new javax.swing.JTextField();
+        TxtEdad = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         btnEliminar = new javax.swing.JButton();
-        txtEdad = new javax.swing.JTextField();
+        btnModificar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -75,11 +66,13 @@ public class VPasajeros extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        hojaDatosPasajeros.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        hojaDatosPasajeros.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         hojaDatosPasajeros.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 hojaDatosPasajerosAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
@@ -91,35 +84,70 @@ public class VPasajeros extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(hojaDatosPasajeros);
 
-        txtNombre.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtNombreMouseClicked(evt);
-            }
-        });
-        txtNombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreActionPerformed(evt);
-            }
-        });
+        getContentPane().add(jScrollPane1, java.awt.BorderLayout.LINE_START);
 
-        txtSexo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSexoActionPerformed(evt);
-            }
-        });
+        java.awt.GridBagLayout jPanel1Layout = new java.awt.GridBagLayout();
+        jPanel1Layout.columnWidths = new int[] {0, 30, 0};
+        jPanel1Layout.rowHeights = new int[] {0, 25, 0, 25, 0, 25, 0};
+        jPanel1.setLayout(jPanel1Layout);
 
-        txtPasaporte.addActionListener(new java.awt.event.ActionListener() {
+        TxtPasaporte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPasaporteActionPerformed(evt);
+                TxtPasaporteActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 100;
+        jPanel1.add(TxtPasaporte, gridBagConstraints);
 
-        btnModificar.setText("Modificar");
-        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+        TxtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModificarActionPerformed(evt);
+                TxtNombreActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.ipadx = 100;
+        jPanel1.add(TxtNombre, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.ipadx = 100;
+        jPanel1.add(TxtSexo, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.ipadx = 100;
+        jPanel1.add(TxtEdad, gridBagConstraints);
+
+        jLabel1.setText("Pasaporte");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        jPanel1.add(jLabel1, gridBagConstraints);
+
+        jLabel2.setText("Nombre");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        jPanel1.add(jLabel2, gridBagConstraints);
+
+        jLabel3.setText("Sexo");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        jPanel1.add(jLabel3, gridBagConstraints);
+
+        jLabel4.setText("Edad");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        jPanel1.add(jLabel4, gridBagConstraints);
+
+        getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -127,106 +155,75 @@ public class VPasajeros extends javax.swing.JFrame {
                 btnEliminarActionPerformed(evt);
             }
         });
+        jPanel2.add(btnEliminar);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(txtPasaporte, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
-                        .addComponent(txtNombre)
-                        .addComponent(btnModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(28, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 25, Short.MAX_VALUE)
-                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtPasaporte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(txtSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(13, 13, 13)
-                .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnEliminar)
-                .addGap(71, 71, 71))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        btnModificar.setText("Modificar");
+        btnModificar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnModificar);
+
+        getContentPane().add(jPanel2, java.awt.BorderLayout.PAGE_END);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void hojaDatosPasajerosAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_hojaDatosPasajerosAncestorAdded
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_hojaDatosPasajerosAncestorAdded
 
-    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_txtNombreActionPerformed
-
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:
-        F.eliminarPasajero(txtPasaporte.getText());
-        int fila=hojaDatosPasajeros.getSelectedRow();
-        
-        modelo.removeRow(fila);
-        
-        txtPasaporte.setText("");
-        txtNombre.setText("");
-        txtEdad.setText("");
-        txtSexo.setText("");
+        //Obtiene la posicion del objeto seleccionado
+        int fila = hojaDatosPasajeros.getSelectedRow();
+
+        if (fila != -1) {  
+            modelo.delPasajero(fila);
+            // Elimina el pasajero del modelo y le avisa que se actualize
+            TxtPasaporte.setText("");
+            TxtNombre.setText("");
+            TxtEdad.setText("");
+            TxtSexo.setText("");
+    
+        } else {
+            JOptionPane.showMessageDialog(this, "No se selecciono ningun pasajero", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
-    private void txtPasaporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasaporteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPasaporteActionPerformed
-
-    private void txtSexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSexoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSexoActionPerformed
-
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-      
-        F.Modificar(txtNombre.getText(),txtPasaporte.getText(),txtSexo.getText(),txtEdad.getText());
-        ((DefaultTableModel) hojaDatosPasajeros.getModel()).fireTableDataChanged();//cambiamos de clase para poder utilizar los metodos para actualizar
-
+        int fila = hojaDatosPasajeros.getSelectedRow();
+        if (fila != -1) {
+            Pasajero p = new Pasajero(TxtPasaporte.getText(), TxtNombre.getText(), TxtEdad.getText(), TxtSexo.getText());
+            modelo.setPasajero(fila, p);
+            TxtPasaporte.setText("");
+            TxtNombre.setText("");
+            TxtEdad.setText("");
+            TxtSexo.setText("");
+        } else {
+            JOptionPane.showMessageDialog(this, "No se selecciono ningun pasajero", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void hojaDatosPasajerosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hojaDatosPasajerosMouseClicked
         // TODO add your handling code here:
         int row = hojaDatosPasajeros.getSelectedRow();
-        String nombre = hojaDatosPasajeros.getModel().getValueAt(row, 0).toString();
-        String sexo = hojaDatosPasajeros.getModel().getValueAt(row, 2).toString();
-        String pasaporte = hojaDatosPasajeros.getModel().getValueAt(row, 1).toString();
-        String edad = hojaDatosPasajeros.getModel().getValueAt(row,3).toString();
-      
-        txtNombre.setText(nombre);
-        txtSexo.setText(sexo);
-        txtPasaporte.setText(pasaporte);
-        txtEdad.setText(edad);
+        Pasajero p = modelo.getPasajero(row);
+        TxtPasaporte.setText(p.getPasaporte());
+        TxtNombre.setText(p.getNombre());
+        TxtSexo.setText(p.getSexo());
+        TxtEdad.setText(p.getEdad());
     }//GEN-LAST:event_hojaDatosPasajerosMouseClicked
 
-    private void txtNombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombreMouseClicked
+    private void TxtPasaporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtPasaporteActionPerformed
         // TODO add your handling code here:
-        
-    }//GEN-LAST:event_txtNombreMouseClicked
+    }//GEN-LAST:event_TxtPasaporteActionPerformed
+
+    private void TxtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtNombreActionPerformed
 
     /**
      * @param args the command line arguments
@@ -264,13 +261,19 @@ public class VPasajeros extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField TxtEdad;
+    private javax.swing.JTextField TxtNombre;
+    private javax.swing.JTextField TxtPasaporte;
+    private javax.swing.JTextField TxtSexo;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnModificar;
     private javax.swing.JTable hojaDatosPasajeros;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField txtEdad;
-    private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtPasaporte;
-    private javax.swing.JTextField txtSexo;
     // End of variables declaration//GEN-END:variables
 }

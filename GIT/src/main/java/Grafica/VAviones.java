@@ -6,7 +6,7 @@
 package Grafica;
 
 import Logica.Fachada;
-import Logica.Pasajeros;
+import Logica.Pasajeros.Pasajeros;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -183,7 +183,7 @@ public class VAviones extends javax.swing.JFrame {
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
-        F.eliminarPasajero(txtPasaporte.getText());
+
         int fila=hojaDatosPasajeros.getSelectedRow();
         
         modelo.removeRow(fila);
@@ -204,8 +204,6 @@ public class VAviones extends javax.swing.JFrame {
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
       
-        F.Modificar(txtNombre.getText(),txtPasaporte.getText(),txtSexo.getText(),txtEdad.getText());
-        ((DefaultTableModel) hojaDatosPasajeros.getModel()).fireTableDataChanged();//cambiamos de clase para poder utilizar los metodos para actualizar
 
     }//GEN-LAST:event_btnModificarActionPerformed
 

@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Logica;
+package Logica.Pasajeros;
 
-import javax.swing.table.DefaultTableModel;
+import Logica.Persona.Persona;
+
 
 /**
  *
@@ -13,8 +14,12 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Pasajero extends Persona {
 
-    private static Pasajero instancia;
     private String Pasaporte;
+
+    public Pasajero(String Pasaporte, String Nombre, String Edad, String Sexo) {
+        super(Nombre, Edad, Sexo);
+        this.Pasaporte = Pasaporte;
+    }
 
     public String getPasaporte() {
         return Pasaporte;
@@ -24,9 +29,6 @@ public class Pasajero extends Persona {
         this.Pasaporte = Pasaporte;
     }
 
-    public Pasajero(String Pasaporte, String Nombre, String Sexo, String Edad) {
-        super(Nombre, Sexo, Edad);
-        this.Pasaporte = Pasaporte;
-    }
+   
 
 }

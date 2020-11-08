@@ -6,8 +6,8 @@
 package Grafica;
 
 
-import Logica.Avion;
-import Logica.Aviones;
+import Logica.Aviones.Avion;
+import Logica.Aviones.Aviones;
 import Logica.Fachada;
 
 /**

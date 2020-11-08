@@ -5,6 +5,12 @@
  */
 package Logica;
 
+import Logica.Tripulante.Tripulantes;
+import Logica.Tripulante.Tripulante;
+import Logica.Vuelos.Vuelo;
+import Logica.Vuelos.Vuelos;
+import Logica.Pasajeros.Pasajero;
+import Logica.Pasajeros.Pasajeros;
 import java.util.ArrayList;
 
 /**
@@ -59,8 +65,8 @@ public ArrayList<Vuelo> Vuelos(){
 
 
         
-public boolean Agregar(String pasaporte, String nombre, String sexo,String edad){
-      Pasajero P=new Pasajero(pasaporte,nombre,sexo,edad);
+public boolean Agregar(Pasajero P){
+     
        Pasajeros Ps = Pasajeros.getInstancia();
        if(Ps.Existe(P)){
            System.out.println("No se agrego");
@@ -79,27 +85,8 @@ public boolean agregaTripulante(String ID, String cargo, String nombre, String s
     return true;
 }
 
-public Pasajero Buscar(String pasaporte){
-       Pasajeros p = Pasajeros.getInstancia();
-       int pos = p.ObtenerPosicion(pasaporte);
-       return p.Devolver(pos);
-   }
 
-public void Modificar( String nombre,String pasaporte, String sexo,String edad){
-       Pasajeros p = Pasajeros.getInstancia();
-       int pos = p.ObtenerPosicion(pasaporte);
-       
-       p.Modificar(pos,nombre,pasaporte,sexo,edad);
-       
-   }
 
-public void eliminarPasajero (String pasaporte){
-       Pasajeros Ps = Pasajeros.getInstancia();
-       if (Ps.ObtenerPosicion(pasaporte)>=0){
-           Ps.Eliminar(Ps.ObtenerPosicion(pasaporte));
-       }else 
-           System.out.println("no eliminado");
-}
 
 public void agregarViaje(String pasaporte,String origen, String destino,String ida, String vuelta){
     Pasajeros Ps = Pasajeros.getInstancia();

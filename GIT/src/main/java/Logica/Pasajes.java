@@ -5,6 +5,8 @@
  */
 package Logica;
 
+import Logica.Vuelos.Vuelo;
+import Logica.Pasajeros.Pasajero;
 import java.util.ArrayList;
 
 /**

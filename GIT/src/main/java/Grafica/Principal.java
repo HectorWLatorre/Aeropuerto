@@ -6,9 +6,8 @@
 package Grafica;
 
 import Logica.Fachada;
-import Logica.Pasajero;
-
-import Logica.Pasajeros;
+import Logica.Pasajeros.Pasajero;
+import Logica.Pasajeros.Pasajeros;
 
 /**
  *

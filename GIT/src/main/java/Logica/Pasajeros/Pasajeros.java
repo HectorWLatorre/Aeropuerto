@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Logica;
+package Logica.Pasajeros;
 
 import java.util.ArrayList;
 
@@ -36,19 +36,6 @@ public class Pasajeros {
         pasajeros.add(P);
     }
 
-    public int ObtenerPosicion(String pasaporte) {
-        int val = 0;
-        for (int i = 0; i < getListado().size(); i++) {
-            if (pasaporte.equals(getListado().get(i).getPasaporte())) {
-                val = i;
-
-            } else {
-                val = -1;
-
-            }
-        }
-        return val;
-    }
 
     public Pasajero Devolver(int pos) {
         return pasajeros.get(pos);
@@ -63,15 +50,15 @@ public class Pasajeros {
         return false;
     }
 
-    public void Modificar(int pos, String nombre,String pasaporte,String sexo,String edad) {
-        pasajeros.get(pos).setNombre(nombre); 
-        pasajeros.get(pos).setSexo(sexo);
-        pasajeros.get(pos).setEdad(edad);
-        pasajeros.get(pos).setPasaporte(pasaporte);
+    public void Modificar(int pos, Pasajero p) {
+        //Podemos remplazar un objeto segun posicion con el metodo set.
+        
+       pasajeros.set(pos, p);
     }
 
-    public void Eliminar(int pos) {
-        pasajeros.remove(pos);
+    public void Eliminar(int fila) {
+     
+        pasajeros.remove(fila);
     }
 
     public String devolverNumPasaporte(String pasaporte) {

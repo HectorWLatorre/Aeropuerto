@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Logica;
+package Logica.Persona;
 
 /**
  *
@@ -14,7 +14,7 @@ public abstract class Persona {
     private  String Edad;
     private  String Sexo;
 
-    public Persona(String Nombre,  String Edad,String Sexo) {
+    public Persona(String Nombre,  String Edad ,String Sexo) {
         this.Nombre = Nombre;
         this.Sexo = Sexo;
         this.Edad = Edad;
